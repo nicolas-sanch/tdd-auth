@@ -9,11 +9,15 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      */
     public function when_a_user_gives_his_credentials_he_is_authenticated()
     {
+        $this->withoutExceptionHandling();
+
         $user = User::factory()->create();
 
         $credentials = [
