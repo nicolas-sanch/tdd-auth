@@ -32,3 +32,17 @@ vendor/bin/sail test --filter <nom-du-test> # Pour lancer un test spécifique
 
 vendor/bin/sail artisan make:controller LoginController # Créer LoginController.php
 ```
+
+## Ajouter un utilisateur en base de donnée
+
+Pour tester notre fonctionnalité, nous avons besoin d'un utilisateur en base de donnée. <br>
+Pour le créer, nous pouvons utiliser _tinker_
+```bash
+vendor/bin/sail artisan migrate
+vendor/bin/sail artisan tinker 
+```
+Dans l'interface qui apparait, saisir
+```bash
+User::factory()->create(['email' => 'john@test.com']);
+exit;
+```
