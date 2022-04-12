@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([        // On utilise la fonction validate() pour vérifier les valeurs des identitfiants
-            'email' => 'email'      // $request->email doit être au format "email" sinon retourne Exception
+            'email' => 'email|exists:users'      // $request->email doit être au format "email" sinon retourne Exception
         ]);
         
         $user = User::whereEmail($request->email)->first();

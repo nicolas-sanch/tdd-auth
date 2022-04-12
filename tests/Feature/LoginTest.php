@@ -40,5 +40,14 @@ class LoginTest extends TestCase
             ->assertSessionHasErrors(keys: 'email');                        // On test que l'on obtient bien une erreur
     }
 
+    /**
+     * @test
+     */
+    public function to_be_authenticated_a_user_must_give_an_email_present_in_db()
+    {
+        $this->post('/login', ['email' => 'fake@hotmail.fr', 'password' => 'fake'])    // On pousse un email avec un mauvais format
+            ->assertSessionHasErrors(keys: 'email');                        // On test que l'on obtient bien une erreur
+    }
+
 
 }
