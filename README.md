@@ -5,6 +5,8 @@ Pour lancer l'appli
 ```bash
 git clone https://github.com/nicolas-sanch/tdd-auth.git
 
+cd tdd-auth
+
 docker run --rm --interactive --tty \
   --volume $PWD:/app \
   composer install
