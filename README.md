@@ -1,6 +1,8 @@
 # TDD-auth
 
-Pour lancer l'appli
+Démonstration de Test driven development - _Développement piloté par les test_ avec Laravel
+
+## Pour démarrer le projet
 
 ```bash
 git clone https://github.com/nicolas-sanch/tdd-auth.git
@@ -21,15 +23,12 @@ sail php artisan key:generate
 sail artisan migrate
 ```
 
-## Création de notre premier test
+## Les principales commandes utilisées
+
 ```bash
 vendor/bin/sail artisan make:test LoginTest # Permet de créer le fichier de test /tests/Feature/LoginTest.php
 
 vendor/bin/sail test --filter <nom-du-test> # Pour lancer un test spécifique
-```
 
-## Développement à partir des tests
-
-```bash
-vendor/bin/sail artisan make:controller LoginController
+vendor/bin/sail artisan make:controller LoginController # Créer LoginController.php
 ```

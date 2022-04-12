@@ -72,16 +72,13 @@ class LoginTest extends TestCase
      * @test
      */
     public function to_be_authenticated_a_user_must_give_exact_password()
-        {
-            $user = User::factory()->create();                                  // On utilise factory pour créer un utilisateur
-
-            $credentials = [                            
-                'email' => $user->email,
-                'password' => 'fake-password'                                   // On utilise des identifiants erronnés
-            ];
+    {
+        $user = User::factory()->create();                                  // On utilise factory pour créer un utilisateur
+        $credentials = [                            
+            'email' => $user->email,
+            'password' => 'fake-password'                                   // On utilise des identifiants erronnés
+        ];
     
-            $this->post('/login', $credentials)->assertSessionHasErrors(keys: 'email');     // On attend une erreur
-        }
-
-
+        $this->post('/login', $credentials)->assertSessionHasErrors(keys: 'email');     // On attend une erreur
+    }
 }
