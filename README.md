@@ -25,7 +25,7 @@ sail artisan migrate
 ```bash
 vendor/bin/sail artisan make:test LoginTest # Permet de créer le fichier de test /tests/Feature/LoginTest.php
 
-vendor/bin/sail artisan --filter <nom-du-test> # Pour lancer un test spécifique
+vendor/bin/sail test --filter <nom-du-test> # Pour lancer un test spécifique
 ```
 
 ## Développement à partir des tests
