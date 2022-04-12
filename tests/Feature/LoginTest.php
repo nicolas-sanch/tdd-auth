@@ -59,4 +59,29 @@ class LoginTest extends TestCase
             ->assertSessionHasErrors(keys: 'email');
     }
 
+    /**
+     * @test
+     */
+    public function authentication_requires_password()
+    {
+        $this->post('/login', ['email' => '', 'password' => ''])                   // On pousse une valeur vide pour le password
+            ->assertSessionHasErrors(keys: 'password');
+    }
+
+    /**
+     * @test
+     */
+    public function to_be_authenticated_a_user_must_give_exact_password()
+        {
+            $user = User::factory()->create();                                  // On utilise factory pour créer un utilisateur
+
+            $credentials = [                            
+                'email' => $user->email,
+                'password' => 'fake-password'                                   // On utilise des identifiants erronnés
+            ];
+    
+            $this->post('/login', $credentials)->assertSessionHasErrors(keys: 'email');     // On attend une erreur
+        }
+
+
 }
