@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
